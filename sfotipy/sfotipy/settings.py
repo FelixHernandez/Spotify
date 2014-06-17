@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'south',
     'albums',
     'artists',
+    'genders',
 )
 
 MIDDLEWARE_CLASSES = (
