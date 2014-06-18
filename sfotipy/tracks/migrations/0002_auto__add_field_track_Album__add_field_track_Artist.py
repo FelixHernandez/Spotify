@@ -10,12 +10,12 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'Track.Album'
         db.add_column('tracks_track', 'Album',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['albums.Album']),
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['albums.Album']),
                       keep_default=False)
 
         # Adding field 'Track.Artist'
         db.add_column('tracks_track', 'Artist',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['artists.Artist']),
+                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['artists.Artist']),
                       keep_default=False)
 
 

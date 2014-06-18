@@ -9,4 +9,6 @@ class Track(models.Model):
 	Track_File = models.FileField(upload_to='tracks')
 	Album = models.ForeignKey(Album)
 	Artist = models.ForeignKey(Artist)
-		
+			
+	def __str__(self):
+		return self.Title
