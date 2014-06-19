@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'userprofiles',
     'tracks',    
     'albums',
     'artists',
@@ -85,3 +86,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+#backends
+AUTHENTICATION_BACKENDS=(
+    'userprofiles.backends.EmailBackend',
+    )
