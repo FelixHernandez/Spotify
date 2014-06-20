@@ -11,7 +11,7 @@ class UserCreationEmailForm(UserCreationForm):
 		model=User
 		fields=('username','email')
 
-	def clean_email(self):
+	#def clean_email(self):
 
 
 class EmailAuthForm(forms.Form):

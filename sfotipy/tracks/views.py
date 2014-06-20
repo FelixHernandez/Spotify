@@ -26,4 +26,3 @@ def track_view(request,title):
 
 	#return HttpResponse(json_data, content_type='application/json')
 	return render(request,'Track.html',{'Track': track})
-
