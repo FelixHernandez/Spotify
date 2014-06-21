@@ -9,6 +9,12 @@ class Track(models.Model):
 	Track_File = models.FileField(upload_to='tracks')
 	Album = models.ForeignKey(Album)
 	Artist = models.ForeignKey(Artist)
+
+
+	def get_absolute_url(self):
+		return '/tracks/'+self.Title
+
+
 #Funcion de Reproductor multimedia
 	def player(self):
 		return """
@@ -20,5 +26,5 @@ class Track(models.Model):
 	player.allow_tags=True
 	player.admin_order_field='Track_File'
 			
-	def __str__(self):
+	def __unicode__(self):
 		return self.Title

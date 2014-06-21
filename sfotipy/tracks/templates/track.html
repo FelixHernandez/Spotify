@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tracks</title>
+	<title>{{Titulo}}</title>
 </head>
 <body>
 	<section>
+		<ul>
+			<!-- ciclo para crear un link por cada cancion -->
+			{% for track in Tracks %}
+			
+			<li><a href="{{track.get_absolute_url}}">{{track.Title}}</a>
+				{% if track.id == selected_track.id %} ***** {% endif %}
+			</li>
+			{% endfor %}
+		</ul>
 		<p>
 			Titulo: {{Track.Title}}
 		</p>
