@@ -22,7 +22,7 @@ class TrackViewSet(viewsets.ModelViewSet):
 	model=Track
 	serializer_class=TrackSerializer
 	filter_fields=('id',)
-	paginate_by=2
+	paginate_by=1
 
 #Manera de enviar los datos con Json
 	# data={
