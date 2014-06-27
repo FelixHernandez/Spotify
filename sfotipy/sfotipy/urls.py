@@ -6,12 +6,14 @@ from artists.views import ArtistDetailView
 from rest_framework import routers
 from artists.views import ArtistViewSet
 from albums.views import AlbumViewSet
+from tracks.views import TrackViewSet
 
 
 #Enlaza el api
 router =routers.DefaultRouter()
 router.register(r'artists',ArtistViewSet)
 router.register(r'albums',AlbumViewSet)
+router.register(r'tracks', TrackViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -25,5 +27,6 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^artists/(?P<pk>[\d]+)',ArtistDetailView.as_view()),
     url(r'^api/',include(router.urls)),
+    url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework'))
     )
 urlpatterns+=patterns('',url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root': settings.MEDIA_ROOT}))

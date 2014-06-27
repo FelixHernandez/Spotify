@@ -11,3 +11,6 @@ class Artist(models.Model):
 	#se define la funcion unicode la cual sirve para hacer referencia a un objeto de manera predeterminada
 	def __unicode__(self):
 		return self.First_Name
+
+	def es_beatles(self):
+		return self.First_Name=="The Beatles"

@@ -13,7 +13,16 @@ def track_view(request,title):
 
 	#Realiza la busqueda del archivo con el title que llega o envia un 404 si no lo encuentra
 	track=get_object_or_404(Track,Title=title)
+	return render(request,'Track.html',{'Track': track})
 
+#Crean el view set para la api
+from rest_framework import viewsets
+from .serializers import TrackSerializer
+class TrackViewSet(viewsets.ModelViewSet):
+	model=Track
+	serializer_class=TrackSerializer
+	filter_fields=('id',)
+	paginate_by=2
 
 #Manera de enviar los datos con Json
 	# data={
@@ -31,4 +40,4 @@ def track_view(request,title):
 
 
 
-	return render(request,'Track.html',{'Track': track})
+	
