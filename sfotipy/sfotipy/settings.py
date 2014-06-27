@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'genders',
     'mockups',
     'django_extensions',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,6 +65,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sfotipy.middlewares.PaisMiddleware',
 )
 
 ROOT_URLCONF = 'sfotipy.urls'
@@ -83,6 +85,9 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
+DEFAULT_CHARSET = 'utf-8' 
+FILE_CHARSET = 'utf-8'
+
 
 LANGUAGE_CODE = 'es-mx'
 

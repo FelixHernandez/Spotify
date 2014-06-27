@@ -1,18 +1,21 @@
 #encoding:utf-8
+#crea una variable aleatoria
 from random import choice
-
+#una lista con frases diferentes
 frases=['Hola','Que Hace','Frase de Prueba']
+#Se importa el modelo Track
 from tracks.models import Track
 
-
-
+#Se crea la funcion basico
 def basico(request):
+	#Se obtienen los tracks que existan registrados
 	tracks=Track.objects.all()
-	track = None
+	#Variable que devuelve el track que se encuentra seleccionado
+	selected_track = None
+	#ciclo for para comparar cual es el track que se muestra en el url
 	for t in tracks:
 		if request.path == t.get_absolute_url():
-			track=t
-			break
-				
-			
-	return{'Titulo': choice(frases),'Tracks':tracks,'track_ruta':track}
+			selected_track=t
+			break			
+	#Se envian las diferentes variables que se mostraran en el template
+	return{'Titulo': choice(frases),'Tracks':tracks,'selected_track':selected_track}

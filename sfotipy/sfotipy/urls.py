@@ -1,8 +1,17 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
-
 from django.contrib import admin
 admin.autodiscover()
+from artists.views import ArtistDetailView
+from rest_framework import routers
+from artists.views import ArtistViewSet
+from albums.views import AlbumViewSet
+
+
+#Enlaza el api
+router =routers.DefaultRouter()
+router.register(r'artists',ArtistViewSet)
+router.register(r'albums',AlbumViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^tracks/(?P<title>[\w\-\W]+)/','tracks.views.track_view',name='track_view'),
     url(r'^signup/','userprofiles.views.signup',name='signup'),
     url(r'^signin/','userprofiles.views.signin',name='signin'),
-    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    url(r'^artists/(?P<pk>[\d]+)',ArtistDetailView.as_view()),
+    url(r'^api/',include(router.urls)),
     )
 urlpatterns+=patterns('',url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root': settings.MEDIA_ROOT}))

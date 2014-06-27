@@ -10,25 +10,31 @@
 			{% for track in Tracks %}
 			
 			<li><a href="{{track.get_absolute_url}}">{{track.Title}}</a>
-				{% if track.id == selected_track.id %} ***** {% endif %}
+				{% if track.id == selected_track.id %} <-- Reproduciendo {% endif %}
 			</li>
 			{% endfor %}
 		</ul>
 		<p>
-			Titulo: {{Track.Title}}
+			<b>Titulo:</b> {{Track.Title}}
 		</p>
 		<p>
-			Orden: {{Track.Order}}
+			<b>Orden:</b> {{Track.Order}}
 		</p>
 		<p>
-			Archivo: {{Track.Track_File}}
+			<b>Archivo:</b> 
+			<audio controls autoplay>
+				<source src="{{Track.Track_File.url}}" type="audio/mpeg">				
+			</audio>
 		</p>
 		<p>
-			Album: {{Track.Album}}
+			<b>Album:</b> {{Track.Album}}
 		</p>
 		<p>
-			Artista: {{Track.Artist}}<br>
-			Biografía: {{Track.Artist.Biography}}
+			<b>Artista:</b> {{Track.Artist}}
+			<ul>
+				<li><b>Biografía:</b> {{Track.Artist.Biography}}</li>
+			</ul>
+			
 		</p>
 	</section>
 </body>

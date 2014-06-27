@@ -1,5 +1,4 @@
 from django.db import models
-
 from artists.models import Artist
 from albums.models import Album
 # Create your models here.
@@ -12,7 +11,7 @@ class Track(models.Model):
 
 
 	def get_absolute_url(self):
-		return '/tracks/'+self.Title
+		return '/tracks/%s/'%self.Title
 
 
 #Funcion de Reproductor multimedia

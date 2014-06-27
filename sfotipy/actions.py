@@ -27,7 +27,7 @@ def export_as_excel(modeladmin, request, queryset):
     except:
         field_names = [field.name for field in opts.fields]
         v_field_names = [getattr(field, 'verbose_name') or field.name for field in opts.fields]
-    v_field_names = map(lambda x: x.encode('utf-8') if x != 'ID' else 'Id', v_field_names)
+    v_field_names = map(lambda x: x.encode('850') if x != 'ID' else 'Id', v_field_names)
 
      
     writer = csv.writer(response)
