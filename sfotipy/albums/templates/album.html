@@ -1,0 +1,10 @@
+{% if fav_album%}
+Pagina de Album:
+{{fav_album.Album_Title}} del artista:	{{fav_album.Artist}}
+
+{% else %}
+Listado de Albums:
+{% for a in albums %}
+{{a}}
+{% endfor %}
+{% endif %}

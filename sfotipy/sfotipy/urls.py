@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 from artists.views import ArtistDetailView
 from tracks.views import TrackDetailView
+from albums.views import AlbumDetailView
 from rest_framework import routers
 from artists.views import ArtistViewSet
 from albums.views import AlbumViewSet
@@ -28,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^artists/(?P<pk>[\d]+)',ArtistDetailView.as_view()),
     url(r'^tracks/(?P<pk>[\d]+)',TrackDetailView.as_view()),
+    url(r'^albums/(?P<pk>[\d]+)',AlbumDetailView.as_view()),
     url(r'^api/',include(router.urls)),
     url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework'))
     )
