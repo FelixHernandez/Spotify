@@ -5,7 +5,7 @@ from .serializers import ArtistSerializer
 
 class ArtistDetailView(DetailView):
 	model=Artist
-	context_object_name='artist'
+	context_object_name='fav_artist'
 
 	def get_template_names(self):
 		return 'artist.html'

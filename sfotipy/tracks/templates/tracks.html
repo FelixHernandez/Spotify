@@ -1,0 +1,10 @@
+{% if fav_track %}
+Pagina del Track:
+{{fav_track.Title}} y es interpretada por {{fav_track.Artist}}
+
+{% else %}
+Listado de Tracks:
+{% for t in tracks %}
+{{t}}
+{% endfor %}
+{% endif %}

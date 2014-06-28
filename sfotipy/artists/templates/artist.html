@@ -1,1 +1,12 @@
-{{artist.First_Name}}
+<!--{{artist.First_Name}}-->
+
+{% if fav_artist %}
+Pagina de Artista:
+{{fav_artist.First_Name}} 	{{fav_artist.Last_Name}}
+
+{% else %}
+Listado de Artistas:
+{% for a in artists %}
+{{a}}
+{% endfor %}
+{% endif %}
