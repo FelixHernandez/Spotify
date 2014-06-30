@@ -1,0 +1,17 @@
+<!--{{artist.First_Name}}-->
+{% load static from staticfiles %}
+
+{% if fav_artist %}
+Pagina de Artista:
+{{fav_artist.First_Name}} 	{{fav_artist.Last_Name}}
+
+{% else %}
+Listado de Artistas:
+{% for a in artists %}
+{{a}}
+{% endfor %}
+{% endif %}
+<br>
+<!-- <img src="/static/fut.jpg"/> -->
+<!-- <img src="{{STATIC_URL}}fut.jpg"> -->
+<img src="{% static "fut.jpg" %}">

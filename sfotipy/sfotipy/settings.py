@@ -24,6 +24,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+
+
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -65,7 +67,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'sfotipy.middlewares.PaisMiddleware',
+    # 'sfotipy.middlewares.PaisMiddleware',
 )
 
 ROOT_URLCONF = 'sfotipy.urls'
@@ -108,6 +110,17 @@ STATICFILES_FINDER=(
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
+
+CACHES={
+    'default':{
+        'BACKEND':'redis_cache.RedisCache',
+        'LOCATION': 'localhost:6379',
+        'OPTIONS':{
+            'DB':1,
+            'PARSER_CLASS':'redis.connection.HiredisParser'
+        }
+    }
+}
 
 STATICFILES_STORAGE ='django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['media'])

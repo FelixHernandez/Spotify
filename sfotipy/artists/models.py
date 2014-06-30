@@ -14,3 +14,6 @@ class Artist(models.Model):
 
 	def es_beatles(self):
 		return self.First_Name=="The Beatles"
+
+	def get_absolute_url(self):
+		return '/artistsd/%s/'%self.id

@@ -23,7 +23,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^tracks/(?P<title>[\w\-\W]+)/','tracks.views.track_view',name='track_view'),
+    url(r'^tracksd/(?P<title>[\w\-\W]+)/','tracks.views.track_view',name='track_view'),
+    url(r'^artistsd/(?P<id>[\w\-\W]+)/','artists.views.artist_view',name='artist_view'),
     url(r'^signup/','userprofiles.views.signup',name='signup'),
     url(r'^signin/','userprofiles.views.signin',name='signin'),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS

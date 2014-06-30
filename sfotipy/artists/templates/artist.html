@@ -1,17 +1,32 @@
-<!--{{artist.First_Name}}-->
-{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Titulo}}</title>
+</head>
+<body>
+	<section>
+		<ul>
+			<!-- ciclo para crear un link por cada cancion -->
+			{% for artist in Artists%}
+			
+			<li><a href="{{artist.get_absolute_url}}">{{artist.First_Name}}</a>
+				{% if artist.id == selected_artist.id %} <-- Viendo {% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+		<p>
+			<b>First Name:</b> {{Artist.First_Name}}
+		</p>
+		<p>
+			<b>Last Name:</b> {{Artist.Last_Name}}
+		</p>
+		<p>
+			
+			<b>Biografía:</b> {{Artist.Biography}}
+			
+			
+		</p>
+	</section>
+</body>
+</html>
 
-{% if fav_artist %}
-Pagina de Artista:
-{{fav_artist.First_Name}} 	{{fav_artist.Last_Name}}
-
-{% else %}
-Listado de Artistas:
-{% for a in artists %}
-{{a}}
-{% endfor %}
-{% endif %}
-<br>
-<!-- <img src="/static/fut.jpg"/> -->
-<!-- <img src="{{STATIC_URL}}fut.jpg"> -->
-<img src="{% static "fut.jpg" %}">

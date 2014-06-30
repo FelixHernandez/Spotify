@@ -11,7 +11,7 @@ class Track(models.Model):
 
 
 	def get_absolute_url(self):
-		return '/tracks/%s/'%self.Title
+		return '/tracksd/%s/'%self.Title
 
 
 #Funcion de Reproductor multimedia
