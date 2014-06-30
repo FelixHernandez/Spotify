@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 
@@ -109,7 +109,9 @@ STATICFILES_FINDER=(
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
 
+STATICFILES_STORAGE ='django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['media'])
+STATIC_ROOT= os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static'])
 MEDIA_URL = '/media/'
 #backends
 # AUTHENTICATION_BACKENDS=(
